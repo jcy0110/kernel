@@ -1,0 +1,28 @@
+---- counter Matches (22 in 6 files) ----
+sysbeepstop in console.c (kernel\chr_drv) : 	/* disable counter 2 */
+sysbeep in console.c (kernel\chr_drv) : 	/* enable counter 2 */
+sysbeep in console.c (kernel\chr_drv) : 	/* set command for counter 2, 2 byte write */
+output_byte in floppy.c (kernel\blk_drv) : 	int counter;
+output_byte in floppy.c (kernel\blk_drv) : 	for(counter = 0 ; counter < 10000 ; counter++) {
+result in floppy.c (kernel\blk_drv) : 	int i = 0, counter, status;
+result in floppy.c (kernel\blk_drv) : 	for (counter = 0 ; counter < 10000 ; counter++) {
+copy_process in fork.c (kernel) : 	p->counter = p->priority;
+memory.c (mm) line 243 :  * and decrementing the shared-page counter for the old page.
+schedule in sched.c (kernel) : 			if ((*p)->state == TASK_RUNNING && (*p)->counter > c)//找出c最大的task
+schedule in sched.c (kernel) : 				c = (*p)->counter, next = i;
+schedule in sched.c (kernel) : 			//counter = counter/2 + priority
+task_struct in sched.h (include\linux) : 	long counter; //时间片
+---- jiffies Matches (#count#) ----
+---- jiffies Matches (12 in 5 files) ----
+copy_process in fork.c (kernel) : 	p->start_time = jiffies;//当前的时间
+schedule in sched.c (kernel) : 			if ((*p)->alarm && (*p)->alarm < jiffies) {
+sys_alarm in sched.c (kernel) : 		old = (old - jiffies) / HZ;
+sys_alarm in sched.c (kernel) : 	current->alarm = (seconds>0)?(jiffies+HZ*seconds):0;
+sched.h (include\linux) line 143 : extern long volatile jiffies;
+sched.h (include\linux) line 146 : #define CURRENT_TIME (startup_time+jiffies/HZ)
+sys_stime in sys.c (kernel) : 	startup_time = get_fs_long((unsigned long *)tptr) - jiffies/HZ;
+sys_times in sys.c (kernel) : 	return jiffies;
+tty_read in tty_io.c (kernel\chr_drv) : 		if (flag=(!oldalarm || time+jiffies<oldalarm))
+tty_read in tty_io.c (kernel\chr_drv) : 			current->alarm = time+jiffies;
+tty_read in tty_io.c (kernel\chr_drv) : 			if (flag=(!oldalarm || time+jiffies<oldalarm))
+tty_read in tty_io.c (kernel\chr_drv) : 				current->alarm = time+jiffies;
